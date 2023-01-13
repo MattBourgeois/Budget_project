@@ -1,0 +1,15 @@
+body{
+	/* background-image:url(https://img.freepik.com/free-vector/dark-polygonal-background_1409-878.jpg?w=1800&t=st=1671803434~exp=1671804034~hmac=6a98485737aa6a26ce94ff8c924c700c9bc32b73352bca00b7ef27b3d2e082be); */
+	background-image: url(https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80);
+}    /* Image by vector_corp on Freepik */
+nav{
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+h1{
+	color: aliceblue;
+}
+.text{
+	color: aliceblue;
+}
