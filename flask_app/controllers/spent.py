@@ -9,7 +9,8 @@ def add_payment():
 	pass
 	if 'user_id' not in session:
 		return redirect('/logout')
-	# print(session['user_id'])
+	if not Spending.validate_exp(request.form):
+		return redirect('/add')
 	data = {
 		"expense": request.form['expense'],
 		"description": request.form['description'],

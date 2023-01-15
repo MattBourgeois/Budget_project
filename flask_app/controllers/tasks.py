@@ -2,15 +2,15 @@ from flask import render_template, redirect, request, session, flash
 from flask_app import app
 from flask_app.models.user_save import Person
 from flask_app.models.money_spent import Spending
-
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
+
+# Add new vaidation for registration and adding a new expense 
+
 
 
 @app.route('/')
 def index():
-	# flash("hello")
-	# flash("Goodbye")
 	return render_template('login.html')
 
 @app.route('/Reg')

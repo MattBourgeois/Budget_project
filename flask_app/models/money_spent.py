@@ -39,3 +39,17 @@ class Spending:
 			list.append(cls(row))
 			# print(list[0])
 		return list
+
+	@staticmethod
+	def validate_exp(mon):
+		is_valid = True
+		if len(mon['expense']) < 3:
+			flash("Name of Product")
+			is_valid = False
+		if len(mon["description"]) < 5:
+			flash("Tell Me more about it")
+			is_valid = False
+		if mon["price"] < 0:
+			flash("What does it cost")
+			is_valid= False
+		return is_valid
