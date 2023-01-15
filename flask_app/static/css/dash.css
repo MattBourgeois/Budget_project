@@ -7,11 +7,13 @@ body{
 	background-image:url(https://img.freepik.com/free-vector/dark-polygonal-background_1409-878.jpg?w=1800&t=st=1671803434~exp=1671804034~hmac=6a98485737aa6a26ce94ff8c924c700c9bc32b73352bca00b7ef27b3d2e082be);
 }
 
-tr{
-	color: aliceblue;
 
+.tablehead{
+	color: aliceblue;
 }
-
-tablehead{
-	color: aliceblue;
+.tabledata{
+	color: white;
+	font-size: large;
+	align-items: center;
+	display: flex;
 }

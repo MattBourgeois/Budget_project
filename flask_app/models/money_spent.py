@@ -21,8 +21,8 @@ class Spending:
 
 	@classmethod
 	def get_all(cls):   #get all info for the user so it can display on dashboard
-		# it displays double at the moment
-		query = "SELECT * FROM Money LEFT JOIN User ON Money.user_id = User_id;"
+		# it displays double at the
+		query = "SELECT * FROM Money LEFT JOIN User ON Money.user_id = User.id;"
 		results = connectToMySQL(cls.db_name).query_db(query)
 		list = []
 		for row in results:
@@ -48,7 +48,4 @@ class Spending:
 		if len(mon["description"]) < 5:
 			flash("Tell Me more about it")
 			is_valid = False
-		if mon["price"] < 0:
-			flash("What does it cost")
-			is_valid= False
 		return is_valid

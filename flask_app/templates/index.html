@@ -15,20 +15,27 @@
 		<a href="/logout">Logout</a>
 	</nav>
 	<div id="main" class="col-4 mx-auto">
+		<!-- <h1>WE ARE UNDER CONSTRUCTION</h1> -->
 		<table>
-			<th class="table table-hover">
-				<tr class="tablehead">Description </tr>
-				<tr>Category </tr>
-				<tr>Price </tr>
-			</th>
-			<td>
-				<h1>WE ARE UNDER CONSTRUCTION</h1>
+			<thead>
+				<tr class="table table-hover">
+					<th class="tablehead"><p>Item</p> </th>
+					<th class="tablehead"><p>Description</p></td>
+					<th class="tablehead"><p>Price</p></td>
+				</tr>
+			</thead>
+			<tbody>
 				{% for bill in spent %}
-					{% if user.id == session.user_id %}
-						<p>{{bill.description}}</p>
-					{% endif %}
+					<tr>
+						{% if user.id == session.user_id %}
+							<td class="tabledata">{{bill.expense}}</td>
+							<td class="tabledata">{{bill.description}}</td>
+							<td class="tabledata">{{bill.price}}</td>
+							<td class="tabledata"><a href="">Edit</a></td>
+						{% endif %}
+					</tr>
 				{% endfor %}
-			</td>
+			</tbody>
 		</table>
 	</div>
 </body>
