@@ -5,7 +5,7 @@ from flask_app.models.money_spent import Spending
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-# Add new vaidation for registration and adding a new expense 
+# Add new vaidation for registration
 
 
 
@@ -30,7 +30,7 @@ def register():
 	return redirect('/dash')
 
 
-@app.route('/login', methods = ['POST']) #login method, FLASH IS NOT WORKING
+@app.route('/login', methods = ['POST']) #login method
 def login():    
     user = Person.get_email(request.form)
     print(user)

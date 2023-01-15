@@ -21,6 +21,7 @@ class Spending:
 
 	@classmethod
 	def get_all(cls):   #get all info for the user so it can display on dashboard
+		# it displays double at the moment
 		query = "SELECT * FROM Money LEFT JOIN User ON Money.user_id = User_id;"
 		results = connectToMySQL(cls.db_name).query_db(query)
 		list = []
@@ -35,9 +36,7 @@ class Spending:
 				'created_at': row['User.created_at'],
 				'updated_at': row['User.updated_at']
 			}
-			# list.users = Person(user_data)
 			list.append(cls(row))
-			# print(list[0])
 		return list
 
 	@staticmethod
