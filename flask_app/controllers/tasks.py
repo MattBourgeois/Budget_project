@@ -67,5 +67,6 @@ def add_exp():
 
 @app.route('/acc') # shows a singular account
 def show_account():
+	session['Takehome'] = take_home_pay
 	user = Person.get_by_id(session['user_id'])
 	return render_template('account.html', user = user)

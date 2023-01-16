@@ -26,6 +26,9 @@ class Spending:
 		results = connectToMySQL(cls.db_name).query_db(query)
 		list = []
 		for row in results:
+			for key in row.keys():
+				print(key)
+			print('')
 			Exps = cls(row)
 			user_data = {
 				'id': row['user_id'],
@@ -38,6 +41,11 @@ class Spending:
 			}
 			list.append(cls(row))
 		return list
+	
+	@classmethod
+	def chat_expense(cls):
+		query = "SELECT price FROM Money;"
+		return connectToMySQL(cls.db_name).query_db(query)
 
 	@staticmethod
 	def validate_exp(mon):

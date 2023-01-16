@@ -3,7 +3,6 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_save import Person
 from flask_app.models.money_spent import Spending
-from flask import jsonify
 
 @app.route('/create', methods = ['POSt'])
 def add_payment():
@@ -26,4 +25,18 @@ def add_payment():
 # def show_chat():
 # 	data = {'Task' : 'Hours per Day', 'Work' : 11, 'Eat' : 2, 'Commute' : 2, 'Watching TV' : 2, 'Sleeping' : 7}
 # 	#print(data)
-# 	return render_template('pie-chat.html', data=data)			
+# 	return render_template('pie-chat.html', data=data)
+
+@app.route('/pie')
+def addprice():	
+	lows = Spending.chat_expense() #list of dict
+	print('A')
+	print(lows)
+	total = 0
+	for x in lows: #iterates throught the list
+		print('B')
+		print(x['price'])
+		total += x['price']
+	print('**********')
+	print(total)
+	return redirect('/acc')
