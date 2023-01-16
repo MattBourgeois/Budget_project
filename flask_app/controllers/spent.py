@@ -3,6 +3,7 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_save import Person
 from flask_app.models.money_spent import Spending
+from flask import jsonify
 
 @app.route('/create', methods = ['POSt'])
 def add_payment():
@@ -19,3 +20,10 @@ def add_payment():
 	}
 	Spending.save_expense(data)
 	return redirect('/dash')
+
+
+# @app.route("/pie") This works, but i am going to do a scatter plot to show what days money was spent
+# def show_chat():
+# 	data = {'Task' : 'Hours per Day', 'Work' : 11, 'Eat' : 2, 'Commute' : 2, 'Watching TV' : 2, 'Sleeping' : 7}
+# 	#print(data)
+# 	return render_template('pie-chat.html', data=data)			
