@@ -4,7 +4,7 @@ from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_save import Person
 from flask_app.models.money_spent import Spending
 
-@app.route('/create', methods = ['POSt'])
+@app.route('/create', methods = ['POST'])
 def add_payment():
 	pass
 	if 'user_id' not in session:
@@ -27,13 +27,14 @@ def add_payment():
 # 	#print(data)
 # 	return render_template('pie-chat.html', data=data)
 
-@app.route('/pie')
+@app.route('/pie') #this will need to be saved in a mysql so it can be taken.
 def addprice():	
 	lows = Spending.chat_expense() #list of dict
 	print('A')
 	print(lows)
 	total = 0
 	for x in lows: #iterates throught the list
+		print(x['created_at']) #need to figure out how to print indexes of dictoary
 		print('B')
 		print(x['price'])
 		total += x['price']

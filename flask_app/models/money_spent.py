@@ -44,7 +44,7 @@ class Spending:
 	
 	@classmethod
 	def chat_expense(cls):
-		query = "SELECT price FROM Money;"
+		query = "SELECT price, created_at FROM Money;"
 		return connectToMySQL(cls.db_name).query_db(query)
 
 	@staticmethod

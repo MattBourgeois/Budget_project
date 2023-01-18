@@ -52,9 +52,9 @@ def logout():
 @app.route('/dash') # shows dashboard
 def dashboard():
 	# print(User_id)
-	print(session['user_id'])
+	# print(session['user_id'])	
 	if 'user_id' not in session:
-		return redirect('/log')
+		return redirect('/logout')
 	# print(session['user_id'])
 	main = Person.get_by_id(session['user_id'])
 	spent = Spending.get_all()
@@ -67,6 +67,6 @@ def add_exp():
 
 @app.route('/acc') # shows a singular account
 def show_account():
-	session['Takehome'] = take_home_pay
+	# session['Takehome'] = take_home_pay
 	user = Person.get_by_id(session['user_id'])
 	return render_template('account.html', user = user)
