@@ -15,5 +15,11 @@ body{
 	color: white;
 	font-size: large;
 	align-items: center;
+	/* display: flex; */
+	padding: 5px;
+	margin: 10px;
+}
+#main{
 	display: flex;
+
 }

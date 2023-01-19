@@ -16,8 +16,9 @@
 	<div>
 		<label class="text" for="take_home_pay">Take Home Pay</label>
 		<input type="currency" name="take_home_pay">
-		<label type="number" name = ""></label>
-		<input type="number" name="" id="">
+		{% for var in total %}
+			{{var.total}}
+		{% endfor %}
 	</div>
 </body>
 </html>
