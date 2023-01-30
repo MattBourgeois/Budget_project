@@ -3,7 +3,7 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import render_template, redirect, request, session, flash
 from flask_app.models.user_save import Person
 from flask_app.models.money_spent import Spending
-import plotly.express as px
+
 
 @app.route('/create', methods = ['POST'])
 def add_payment():
@@ -35,16 +35,14 @@ def addprice():
 	print(lows)
 	total = 0
 	for x in lows: #iterates throught the list
-		print(x['created_at']) #need to figure out how to print indexes of dictoary
+		print((str(x['created_at'].strftime('%x')))) #need to figure out how to print indexes of dictoary
+		#  variable.strftime{'%Y-%m-%d'}
+		# print(w)
 		print('B')
 		print(x['price'])
 		total += x['price']
 	print('**********')
 	print(total)
-	return redirect('/acc')
+	return redirect('/acc' )
 
 
-@app.route('/edit')
-def edit():
-	fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
-	fig.show()

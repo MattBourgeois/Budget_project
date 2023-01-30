@@ -33,7 +33,7 @@ def register():
 @app.route('/login', methods = ['POST']) #login method
 def login():    
     user = Person.get_email(request.form)
-    print(user)
+    # print(user)
     if not user:
         flash("Wrong Email")
         return redirect('/')
@@ -51,8 +51,6 @@ def logout():
 
 @app.route('/dash') # shows dashboard
 def dashboard():
-	# print(User_id)
-	# print(session['user_id'])	
 	if 'user_id' not in session:
 		return redirect('/logout')
 	# print(session['user_id'])
@@ -65,8 +63,35 @@ def add_exp():
 	user = Person.get_by_id(session['user_id'])
 	return render_template('spent.html', user = user)
 
-@app.route('/acc') # shows a singular account
+@app.route('/acc') # shows a singular accountx
 def show_account():
 	# session['Takehome'] = take_home_pay
+	lows = Spending.chat_expense()
+	# print(len(lows)-1)
+	for row in lows:
+		# print('A')
+		print(row['created_at'])
+	
 	user = Person.get_by_id(session['user_id'])
 	return render_template('account.html', user = user)
+
+
+@app.route('/chart')
+def chat():
+	pass 
+	
+	data = Spending.chat_expense()
+	print(data)
+	# [
+	# 	('01-01-2023', 10),
+	# 	('01-02-2023', 100),
+	# 	('01-04-2023', 1000),
+	# 	('01-03-2023', 10000),
+	# ]
+# row['created_at']
+	# labels = [row['created_at'].strftime('%x') for row in data ]
+	labels = [row['created_at'] for row in data]
+	print(labels)
+	values = [float(row['price']) for row in data ]
+	print(values)
+	return render_template('chart.html', labels = labels, values = values)
