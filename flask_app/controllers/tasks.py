@@ -82,13 +82,6 @@ def chat():
 	
 	data = Spending.chat_expense()
 	print(data)
-	# [
-	# 	('01-01-2023', 10),
-	# 	('01-02-2023', 100),
-	# 	('01-04-2023', 1000),
-	# 	('01-03-2023', 10000),
-	# ]
-# row['created_at']
 	# labels = [row['created_at'].strftime('%x') for row in data ]
 	labels = [row['created_at'] for row in data]
 	print(labels)

@@ -22,12 +22,6 @@ def add_payment():
 	return redirect('/dash')
 
 
-# @app.route("/pie") This works, but i am going to do a scatter plot to show what days money was spent
-# def show_chat():
-# 	data = {'Task' : 'Hours per Day', 'Work' : 11, 'Eat' : 2, 'Commute' : 2, 'Watching TV' : 2, 'Sleeping' : 7}
-# 	#print(data)
-# 	return render_template('pie-chat.html', data=data)
-
 @app.route('/pie') #this will need to be saved in a mysql so it can be taken.
 def addprice():	
 	lows = Spending.chat_expense() #list of dict
