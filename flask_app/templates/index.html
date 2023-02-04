@@ -5,16 +5,22 @@
 	<meta name="viewport" content="width=0, initial-scale=1.0">
 	<title>Budget</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/dash.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dash.css') }}">
+	<style>
+		body{ 
+			background-image: image();
+		}
+		
+	</style>
 </head>
 <body>
-    <nav class="d-flex justify-content-between align-items-center col-12">
+    <nav id="nav" class="d-flex justify-content-between align-items-center col-12">
 		<a href="/acc">Account</a>
 		<a href="/add">Add Payment</a>
 		<a href="/chart">Show Chart</a>
 		<a href="/logout">Logout</a>
 	</nav>
-	<div id="main" class="col-4 mx-auto">
+	<div id="main" class="col-8 mx-auto">
 		<!-- <h1>WE ARE UNDER CONSTRUCTION</h1> -->
 		<table>
 			<thead>
@@ -27,10 +33,10 @@
 			<tbody>
 				{% for bill in spent %}
 					<tr>
-						{% if user.id == session.user_id %}
+						{% if bill.user_id == session['user_id'] %}
 							<td class="tabledata">{{bill.expense}}</td>
 							<td class="tabledata">{{bill.description}}</td>
-							<td class="tabledata">{{bill.price}}</td>
+							<td class="tabledata">${{bill.price}}</td>
 							<td class="tabledata"><a href="">Edit</a></td>	
 						{% endif %}
 					</tr>

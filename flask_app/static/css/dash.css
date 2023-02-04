@@ -3,11 +3,8 @@
 	margin: auto;
 }
 body{
-	background-color: black;
-	background-image:url(https://img.freepik.com/free-vector/dark-polygonal-background_1409-878.jpg?w=1800&t=st=1671803434~exp=1671804034~hmac=6a98485737aa6a26ce94ff8c924c700c9bc32b73352bca00b7ef27b3d2e082be);
+	background-image: url('/static/images/878.jpg');
 }
-
-
 .tablehead{
 	color: aliceblue;
 }
@@ -22,4 +19,12 @@ body{
 #main{
 	display: flex;
 
+}
+nav{
+	/* background-color: black; */
+	color: greenyellow;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
 }

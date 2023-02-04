@@ -55,6 +55,8 @@ def dashboard():
 		return redirect('/logout')
 	# print(session['user_id'])
 	main = Person.get_by_id(session['user_id'])
+	print(session['user_id'])
+	print(main)
 	spent = Spending.get_all()
 	return render_template('index.html', user = main, spent = spent) 
 
