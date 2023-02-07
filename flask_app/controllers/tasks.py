@@ -5,10 +5,6 @@ from flask_app.models.money_spent import Spending
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-# Add new vaidation for registration
-
-
-
 @app.route('/')
 def index():
 	return render_template('login.html')
