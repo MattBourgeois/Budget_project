@@ -63,11 +63,8 @@ def add_exp():
 
 @app.route('/acc') # shows a singular accountx
 def show_account():
-	# session['Takehome'] = take_home_pay
 	lows = Spending.chat_expense()
-	# print(len(lows)-1)
 	for row in lows:
-		# print('A')
 		print(row['created_at'])
 	
 	user = Person.get_by_id(session['user_id'])
