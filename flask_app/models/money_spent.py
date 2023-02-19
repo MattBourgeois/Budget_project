@@ -20,15 +20,11 @@ class Spending:
 		return connectToMySQL(cls.db_name).query_db(query, data) 
 
 	@classmethod
-	def get_all(cls):   #get all info for the user so it can display on dashboard
-		# it displays double at the
+	def get_all(cls): 
 		query = "SELECT * FROM Money LEFT JOIN User ON Money.user_id = User.id;"
 		results = connectToMySQL(cls.db_name).query_db(query)
 		list = []
 		for row in results:
-			# for key in row.keys():
-				# print(key)
-			# print('')
 			Exps = cls(row)
 			user_data = {
 				'id': row['user_id'],
@@ -44,7 +40,7 @@ class Spending:
 	
 	@classmethod
 	def chat_expense(cls):
-		# query = "SELECT price, created_at FROM Money;"
+		# query = "SELECT price, created_at FROM Money;" different way to do they query
 		query = "SELECT sum(price) AS price, DATE_FORMAT(created_at, '%c-%d-%Y') AS created_at FROM Money GROUP BY DATE_FORMAT(created_at, '%c-%d-%Y');"
 		return connectToMySQL(cls.db_name).query_db(query)
 

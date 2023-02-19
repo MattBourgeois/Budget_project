@@ -74,7 +74,6 @@ def show_account():
 @app.route('/chart')
 def chat():
 	pass 
-	
 	data = Spending.chat_expense()
 	print(data)
 	# labels = [row['created_at'].strftime('%x') for row in data ]
