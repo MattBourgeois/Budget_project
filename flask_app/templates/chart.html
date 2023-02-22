@@ -34,22 +34,11 @@
 		type: 'bar',
 		data: {
 			labels: {{labels | safe}},
-			// safe allows html tags to be read in correct form, not escaped.
 			datasets: [{
 			label: 'Money Spent',
 			data: {{values | safe}},
-			borderWidth: 1,
-			}]
-		},
-		options: {
-			scales: {
-				y: {
-				beginAtZero: true
-				}
-			}
-		}
-		});
+			borderWidth: 1,}]},
+		options: {scales: {y: {beginAtZero: true}}}});
 	</script>
-
 </body>
 </html>
