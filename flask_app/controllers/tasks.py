@@ -81,4 +81,4 @@ def chat():
 	print(labels)
 	values = [float(row['price']) for row in data ]
 	print(values)
-	return render_template('chart.html', labels = labels, values = values)
+	return render_template('chart.html', labels = labels, values = values, response = response )
