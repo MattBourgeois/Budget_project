@@ -45,18 +45,17 @@ def logout():
 	session.clear()
 	return redirect('/')
 
-@app.route('/dash') # shows dashboard
+@app.route('/dash')
 def dashboard():
 	if 'user_id' not in session:
 		return redirect('/logout')
-	# print(session['user_id'])
 	main = Person.get_by_id(session['user_id'])
 	print(session['user_id'])
 	print(main)
 	spent = Spending.get_all()
 	return render_template('index.html', user = main, spent = spent) 
 
-@app.route('/add') # brings person to the add expense page
+@app.route('/add') #
 def add_exp():
 	user = Person.get_by_id(session['user_id'])
 	return render_template('spent.html', user = user)
@@ -66,7 +65,7 @@ def show_account():
 	lows = Spending.chat_expense()
 	for row in lows:
 		print(row['created_at'])
-	
+
 	user = Person.get_by_id(session['user_id'])
 	return render_template('account.html', user = user)
 
